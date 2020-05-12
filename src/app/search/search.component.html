@@ -1,0 +1,13 @@
+<div class="row">
+    <form class="col s12" (submit)="formSubmit()">
+      <div class="row">
+        <div class="input-field col s10 offset-s1">
+          <input [(ngModel)]="mot" id="mot" type="text" name="mot">
+          <label for="email">Entrer le nom du superhero et taper sur enter</label>
+          <span class="helper-text">{{errorText}}</span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <app-hero-list></app-hero-list>
