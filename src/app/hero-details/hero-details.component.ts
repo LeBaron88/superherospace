@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SuperheroService } from '../shared/superhero.service';
+import { SuperHero } from '../shared/superheroInterface';
 
 
 
@@ -10,7 +11,7 @@ import { SuperheroService } from '../shared/superhero.service';
 })
 export class HeroDetailsComponent implements OnInit {
 
-  @Input('superhero') superhero: superHero;
+  @Input('superhero') superhero: SuperHero;
 
   @Output('addToFavorite') addToFavoriteTo = new EventEmitter();
   count = 0;
@@ -27,12 +28,4 @@ export class HeroDetailsComponent implements OnInit {
 
 
 
-}
-
-export interface superHero {
-  id: number;
-  name: string;
-  description: string;
-  imgSrc: string;
-  favorite: boolean;
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SuperheroService } from '../shared/superhero.service';
+import { SuperHero } from '../shared/superheroInterface';
 
 @Component({
   selector: 'app-search',
@@ -9,17 +11,24 @@ export class SearchComponent implements OnInit {
 
   mot = '';
   errorText = '';
-  constructor() { }
+  superheroes: SuperHero[] = [];
+  constructor(private superheroService: SuperheroService) { }
 
   ngOnInit() {
   }
 
   formSubmit() {
-    if(this.mot.length < 4) {
+    if (this.mot.length < 4) {
       this.errorText = 'La recherche doit comporter plus de 3 lettres';
-    }
-    else {
+    } else {
       this.errorText = this.mot;
+      this.superheroService.loadSuperHeroes(this.mot).subscribe(resultat => {
+        this.superheroes = resultat['results'].map( result => {
+          result.favorite = false;
+          return result;
+        });
+      });
+
     }
   }
 

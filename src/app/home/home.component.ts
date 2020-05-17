@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { superHero } from '../hero-details/hero-details.component';
 import { SuperheroService } from '../shared/superhero.service';
+import { SuperHero } from '../shared/superheroInterface';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { SuperheroService } from '../shared/superhero.service';
 })
 export class HomeComponent implements OnInit {
 
-  superheroesMain: superHero[] ;
+  superheroesMain: SuperHero[] ;
   constructor(private superheroService: SuperheroService) { }
 
   ngOnInit() {

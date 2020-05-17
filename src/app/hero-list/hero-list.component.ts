@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { superHero } from '../hero-details/hero-details.component';
+import { SuperHero } from '../shared/superheroInterface';
 
 @Component({
   selector: 'app-hero-list',
@@ -8,7 +8,7 @@ import { superHero } from '../hero-details/hero-details.component';
 })
 export class HeroListComponent implements OnInit {
 
-  @Input() superheroes: superHero[];
+  @Input() superheroes: SuperHero[];
   constructor() { }
 
   ngOnInit() {
