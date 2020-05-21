@@ -13,7 +13,7 @@ export class FavoriteComponent implements OnInit {
   constructor(private superheroService: SuperheroService) { }
 
   ngOnInit() {
-   this.superheroesFav = this.superheroService.getSuperheroes().filter(hero => hero.favorite === true);
+   this.superheroService.superheroes$.subscribe(sh => this.superheroesFav = sh.filter(superhero => superhero.favorite === true));
   }
 
 }

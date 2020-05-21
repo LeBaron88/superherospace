@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   constructor(private superheroService: SuperheroService) { }
 
   ngOnInit() {
-    this.superheroesMain = this.superheroService.getSuperheroes();
   }
 
 }

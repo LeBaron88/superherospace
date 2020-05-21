@@ -13,6 +13,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { HeroDetailsComponent } from './hero-details/hero-details.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { SuperheroService } from './shared/superhero.service';
+import { PowerPipe } from './shared/power.pipe';
+import { PowerstatPipe } from './shared/powerstat.pipe';
+import { SfilterPipe } from './shared/sfilter.pipe';
+import { FavfilterPipe } from './shared/favfilter.pipe';
+import { PreloaderComponent } from './helpers/preloader/preloader.component';
+import { NotfoundComponent } from './helpers/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +29,13 @@ import { SuperheroService } from './shared/superhero.service';
     NavbarComponent,
     ProfileComponent,
     HeroDetailsComponent,
-    HeroListComponent
+    HeroListComponent,
+    PowerPipe,
+    PowerstatPipe,
+    SfilterPipe,
+    FavfilterPipe,
+    PreloaderComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

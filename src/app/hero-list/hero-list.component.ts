@@ -14,11 +14,6 @@ export class HeroListComponent implements OnInit {
   ngOnInit() {
   }
 
-  addToFavoriteMain(id) {
-    this.superheroes[id].favorite = !this.superheroes[id].favorite;
-
-  }
-
 }
 
 

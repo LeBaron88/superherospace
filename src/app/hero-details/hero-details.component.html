@@ -3,20 +3,21 @@
       <div class="card">
         <div class="card-image">
           <img [src]="superhero.image.url">        
-          <span class="card-title">{{superhero.name}}</span>
-          <a (click)="addFavorite($event)" class="btn-floating halfway-fab waves-effect waves-light" [ngClass]="{'red': !superhero.favorite, 'grey': superhero.favorite}">
-            <i *ngIf="!superhero.favorite; then fav else rem"></i>
-            <ng-template #fav>
-              <i class="material-icons">favorite</i>
-            </ng-template>
-            <ng-template #rem>
-              <i class="material-icons">remove</i>
-            </ng-template>
-          </a>
+          <span class="card-title">{{superhero.name}}</span>  
+            <a (click)="addFavorite()" class="btn-floating halfway-fab waves-effect waves-light" [ngClass]="{'red': !superhero.favorite, 'grey': superhero.favorite}">
+              <i *ngIf="!superhero.favorite; then fav else rem"></i>
+              <ng-template #fav>
+                <i #favBtn class="material-icons tooltipped" data-position="top" data-tooltip="Ajouter aux favoris">favorite</i>
+              </ng-template>
+              <ng-template #rem>
+                <i #remBtn class="material-icons tooltipped" data-position="top" data-tooltip="Retirer des favoris">remove</i>
+              </ng-template>
+            </a>
         </div>
         <div class="card-content">
           <p>{{superhero.biography['full-name']}}</p>
-          <p>Favorite: {{superhero.favorite}}</p>       
+          <p>Favorite: {{superhero.favorite}}</p>     
+          <p [innerHtml]="superhero | power"></p>
         </div>
       </div>
     </div>
