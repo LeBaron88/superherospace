@@ -1,4 +1,4 @@
-/* .card-fab {
+.card-fab {
     position: relative;
     z-index: 1;
 }
@@ -10,4 +10,4 @@
 .card.medium .card-image + .card-fab +.card-content,
 .card.large .card-image + .card-fab + .card-content {
   max-height: 40%;
-} */
+} 

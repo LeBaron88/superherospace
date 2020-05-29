@@ -12,7 +12,7 @@
       {{ superhero.appearance["eye-color"] }} -
       {{ superhero.appearance["hair-color"] }}
     </p>
-    <a class="waves-effect waves-light btn" [ngClass]="{'red': !superhero.favorite, 'grey': superhero.favorite}">
+    <a (click)="addFavorite()" class="waves-effect waves-light btn" [ngClass]="{'red': !superhero.favorite, 'grey': superhero.favorite}">
       <i class="material-icons left">{{superhero.favorite ? 'remove':'favorite'}}</i>
       {{superhero.favorite ? 'Retirer des favoris':'Ajouter aux favoris'}}
     </a>
@@ -48,13 +48,13 @@
         </p>
         <p class="property">Occupation</p>
         <p class="property-content">
-          {{ superhero.biography.occupation ? superhero.biography.occupation : "none" }}
+          {{ superhero.work.occupation ? superhero.work.occupation : "none" }}
         </p>
       </div>
       <div class="col s12 m6">
         <p class="property">Base</p>
         <p class="property-content">
-          {{ superhero.biography.base ? superhero.biography.base : "none" }}
+          {{ superhero.work.base ? superhero.work.base : "none" }}
         </p>
         <p class="property">First-appearance</p>
         <p class="property-content">
@@ -69,6 +69,11 @@
           {{ superhero.biography.alignment ? superhero.biography.alignment : "none"}}
         </p>
       </div>
+    </div>
+    <div class="row">
+      <p class="center">
+        <a [routerLink]="data.link" class="waves-effect waves-light btn blue-text btn-flat transparent">Retour</a>
+      </p>
     </div>
   </div>
 </div>

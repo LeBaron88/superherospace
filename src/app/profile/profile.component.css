@@ -43,3 +43,13 @@ h5 {
 .btn {
     font-size: 0.8em;
 }
+
+.btn-flat {
+    border-radius: 3px;
+    border: 1px #2196f3  solid;
+}
+
+.btn-flat:hover {
+    background-color: #2196f3 !important;
+    color: white !important;
+}

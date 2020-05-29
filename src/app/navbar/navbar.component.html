@@ -1,9 +1,18 @@
 <nav>
-    <div class="nav-wrapper blue accent-3">
-      <a routerLink="" class="brand-logo myLogo">Superhero Space</a>
+    <div class="nav-wrapper" [ngClass]="navbarColor">
+      <a routerLink="" class="brand-logo myLogo hide-on-med-and-down">Superhero Space</a>
+      <a routerLink="" class="brand-logo hide-on-large-only logo-small">Superhero Space</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li routerLinkActive="active"><a routerLink="/favorite"><i class="material-icons left">favorite</i>My favorites</a></li>
         <li routerLinkActive="active"><a routerLink="/search"><i class="material-icons right">search</i>Search superhero</a></li>
       </ul>
     </div>
-  </nav>
+</nav>
+
+<ul class="sidenav" id="mobile-demo" #sidenav>
+  <h3 class="center">Superhero Space</h3>
+  <li><div class="divider"></div></li>
+  <li routerLinkActive="active"><a routerLink="/favorite" (click)="closeMenu()"><i class="material-icons right">favorite</i>My favorites</a></li>
+  <li routerLinkActive="active"><a routerLink="/search" (click)="closeMenu()"><i class="material-icons right">search</i>Search superhero</a></li>
+</ul>

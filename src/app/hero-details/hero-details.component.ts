@@ -1,20 +1,22 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { SuperheroService } from '../shared/superhero.service';
 import { SuperHero } from '../shared/superheroInterface';
 
-import * as M from 'materialize-css';1
+import * as M from 'materialize-css';import { IData } from '../shared/dataInterface';
+1
 
 @Component({
   selector: 'app-hero-details',
   templateUrl: './hero-details.component.html',
   styleUrls: ['./hero-details.component.css']
 })
-export class HeroDetailsComponent implements OnInit, AfterViewInit {
+export class HeroDetailsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('favBtn') favBtn: ElementRef;
-  @ViewChild('remBtn') remBtn: ElementRef;
 
   @Input('superhero') superhero: SuperHero;
+
+  data: IData;
 
   constructor(private superheroService: SuperheroService) {}
 
@@ -25,11 +27,12 @@ export class HeroDetailsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (!this.superhero.favorite) {
-      M.Tooltip.init(this.favBtn.nativeElement);
-    } else {
-      M.Tooltip.init(this.remBtn.nativeElement);
-    }
+    M.Tooltip.init(this.favBtn.nativeElement);
+  }
+
+  ngOnDestroy() {
+    const instance = M.Tooltip.getInstance(this.favBtn.nativeElement);
+    instance.destroy();
   }
 
 }

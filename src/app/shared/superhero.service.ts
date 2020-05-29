@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SuperHero } from './superheroInterface';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { IData } from './dataInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,8 @@ export class SuperheroService {
 
   private superheroes = new BehaviorSubject<SuperHero[]>([]);
   superheroes$ = this.superheroes.asObservable();
+
+  data: IData = { link: '/search', searchWord: '', ids: []};
   constructor(private httpClient: HttpClient ) { }
 
   loadSuperHeroes(name: string): Observable<SuperHero[]> {
@@ -45,5 +48,13 @@ export class SuperheroService {
   shIncluded(sh: SuperHero[], superhero: SuperHero) {
     if (sh.some(e => e.id === superhero.id)) { return true; }
     return false;
+  }
+
+  getData(): IData {
+    return this.data;
+  }
+
+  setData(dt: IData) {
+    this.data = dt;
   }
 }

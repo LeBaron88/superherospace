@@ -42,11 +42,10 @@ import { NotfoundComponent } from './helpers/notfound/notfound.component';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
+      { path: '', component: SearchComponent },
       { path: 'favorite', component: FavoriteComponent },
-      { path: 'search', component: SearchComponent },
       { path: 'profile/:id', component: ProfileComponent },
-      { path: '**', component: HomeComponent }
+      { path: '**', component: SearchComponent }
     ])
   ],
   providers: [SuperheroService],

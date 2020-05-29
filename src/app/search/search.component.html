@@ -10,4 +10,8 @@
   </form>
 </div>
 
+<app-preloader *ngIf="loading"></app-preloader>
+
+<app-notfound *ngIf="notFound"></app-notfound>
+
 <app-hero-list [superheroes]="superheroes | sfilter: ids"></app-hero-list>
